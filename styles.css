@@ -1,5 +1,22 @@
 /* Body and Text Styles */
 
+html {
+    scrollbar-color: rgb(255, 255, 255) transparent;
+    scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgb(255, 255, 255);
+}
+
 h1 {
     color: #fff;
     background-color: transparent;
@@ -125,46 +142,57 @@ img {
 /* Logo/Navbar styles */
 
 .logo-header {
-    display: block;
-    text-align: center;
-    align-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    margin: 0px 0px 0px 15px;
 }
 
 .logo img {
     display: flex;
-    height: 250px;
-    width: 250px;
-    margin: 0 auto;
-}
-
-.logo {
+    height: 50px;
+    width: 50px;
     margin: 0 auto;
 }
 
 .navbar {
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin: 0px;
     background-color: transparent;
     align-items: center;
     align-content: center;
-    padding: 30px;
+    padding: 10px;
     margin-left: auto;
     margin-right: auto;
+    border-bottom: #353535 solid 1px;
 }
 
 .navbar-menu {
     display: flex;
     align-content: center;
     justify-content: center;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     color: transparent;
 }
 
 .navbar-items {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
+    justify-content: space-between;
     background-color: transparent;
 }
 
@@ -279,6 +307,7 @@ a.black_button:hover {
     flex-direction: column;
     text-align: center;
     padding: 10px 300px;
+    margin: 50px 0px;
     background: transparent;
     justify-content: center;
     align-items: center;
@@ -446,7 +475,7 @@ p.course:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: transparent;
-    margin: 40px;
+    margin: 0px 40px;
 }
 
 #left-side.column {
@@ -488,6 +517,10 @@ p.course:hover {
 }
 
 /* Footer Styles */
+
+footer {
+    border-top: #353535 solid 1px;
+}
 
 .footer-wrapper {
     display: flex;
@@ -683,7 +716,7 @@ h1#close-button {
     padding: 0px 20px;
     background-color: #0a0a0a;
     opacity: 100%;
-    border: #353535 solid 2px;
+    border: #353535 solid 1px;
     height: 650px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
@@ -747,6 +780,7 @@ input#submit-button {
         justify-content: center;
         width: 100%;
         height: 100%;
+        margin-top: 65px;
     }
 
     /* Responsive Logo and Navbar Styles */
@@ -762,8 +796,8 @@ input#submit-button {
 
     .logo img {
         display: flex;
-        width: 70px;
-        height: 70px;
+        width: 50px;
+        height: 50px;
     }
 
     .logo-header {
@@ -775,36 +809,39 @@ input#submit-button {
         align-items: center;
         justify-self: center;
         background: #0a0a0a;
-        position: sticky;
-        top: 0;
-        z-index: 999;
+        position: fixed;
+        width: 100%;
+        z-index: 10;
+        padding: 20px;
+        top: 0px;
     }
 
     .navbar-menu {
         display: grid;
         grid-template-columns: auto;
-        margin: 0;
         width: 100%;
         position: absolute;
+        left: 0px;
         top: -1000px;
-        opacity: 0;
         transition: all 0.5s ease-in-out;
         height: 50vh;
         z-index: -1;
-        background: #FF9E04;
+        padding: 0px;
     }
 
     .navbar-menu.active {
         justify-content: center;
-        top: 85%;
+        top: 10vh;
         background-color: #0a0a0a;
-        opacity: 1;
         transition: all 0.5s ease-in-out;
         z-index: 99;
         height: 60vh;
+        left: 0px;
         font-size: 1.5rem;
         width: 100%;
+        padding: 0px;
         border-bottom: #353535 solid 1px;
+        border-top: #353535 solid 1px;
     }
 
     .navbar-links {
@@ -815,13 +852,6 @@ input#submit-button {
         background-color: transparent;
     }
 
-    #mobile-menu {
-        position: absolute;
-        top: 35%;
-        right: 5%;
-        transform: translate(5%, 20%);
-    }
-
     .navbar-toggle .bar {
         display: block;
         cursor: pointer;
@@ -830,7 +860,7 @@ input#submit-button {
     .navbar-items {
         width: 100%;
         display: flex;
-        align-content: flex-start;
+        align-items: center;
         background-color: transparent;
     }
 
@@ -996,8 +1026,22 @@ input#submit-button {
 
 @media screen and (max-width: 600px) {
 
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+.logo h1 {
+    font-size: 1.3rem;
+    margin: 0px 0px 0px 10px;
+}
+
+.navbar-menu.active {
+    top: 7.2vh;
+}
+
 .navbar {
-    padding: 10px;
+    padding: 12px 12px;
 }
 
 h1 {
@@ -1111,6 +1155,9 @@ p.course:hover {
     font-size: 1rem;
 }
 
+.button-container #button.button, .button-container #scroll.black_button {
+    margin: 20px;
+}
 
 a#image-menu {
     text-decoration: none;

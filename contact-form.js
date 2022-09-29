@@ -22,5 +22,3 @@ closeForm.addEventListener('click', function() {
 for (i = 0; i < openContactForm.length; i++) {
     openContactForm[i].addEventListener('click', showContactForm)
 }
-
-openContactFormBlack[1].addEventListener('click', showContactForm)
